@@ -1,7 +1,6 @@
 package com.snow.zulrah.leafs
 
 import com.snow.zulrah.helpers.CommonMethods.isPyromancerDead
-import com.snow.zulrah.models.WintertodtLocation
 import org.powbot.api.Condition
 import org.powbot.api.rt4.Combat
 import org.powbot.api.script.tree.Leaf

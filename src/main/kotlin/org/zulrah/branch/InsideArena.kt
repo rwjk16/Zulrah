@@ -2,7 +2,6 @@ package org.zulrah.branch
 
 import com.snow.zulrah.Script
 import com.snow.zulrah.leafs.ExitArena
-import com.snow.zulrah.leafs.LightInitialFire
 import org.Constants.Companion.ZUL_INST_AREA
 import org.powbot.api.rt4.Players
 import org.powbot.api.script.tree.Branch

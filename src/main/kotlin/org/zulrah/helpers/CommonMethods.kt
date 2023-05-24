@@ -3,7 +3,6 @@ package com.snow.zulrah.helpers
 import com.snow.zulrah.OpenWintertodtConstants.TEXTURE_BURNING
 import com.snow.zulrah.OpenWintertodtConstants.TEXTURE_PYROMANCERDEAD
 import com.snow.zulrah.OpenWintertodtConstants.WIDGETS_ROOT_ID
-import com.snow.zulrah.models.WintertodtLocation
 import org.powbot.api.rt4.Component
 import org.powbot.api.rt4.Equipment
 import org.powbot.api.rt4.Widgets

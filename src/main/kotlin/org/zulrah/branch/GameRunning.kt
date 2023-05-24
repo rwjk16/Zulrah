@@ -83,8 +83,8 @@ class ShouldStartLightingInventory(script: com.snow.zulrah.Script) : Branch<com.
 
     private var logger: Logger = Logger.getLogger(this.javaClass.simpleName)
 
-    override val successComponent: TreeComponent<Script> = CanLightFire(script)
-    override val failedComponent: TreeComponent<Script> = ShouldWalkToSafespot(script)
+    override val successComponent: TreeComponent<Script> = SimpleLeaf(script, "Test") {}
+    override val failedComponent: TreeComponent<Script> = SimpleLeaf(script, "Test") {}
 
     // TODO Figure out how to split it better between different configurations without duplicate counts
     override fun validate(): Boolean {
@@ -111,36 +111,6 @@ class ShouldStartLightingInventory(script: com.snow.zulrah.Script) : Branch<com.
 //        }
 
         return false //result.also { script.status.lighting = it }
-    }
-}
-
-class CanLightFire(script: com.snow.zulrah.Script) : Branch<com.snow.zulrah.Script>(script, "Can light fire") {
-
-    override val successComponent: TreeComponent<com.snow.zulrah.Script> = LightingBrazier(script)
-    override val failedComponent: TreeComponent<com.snow.zulrah.Script> = UpdateLocation(script)
-
-    override fun validate(): Boolean {
-        return false //isBrazierAlive(script.status.currentLocation) || !isPyromancerDead(script.status.currentLocation)
-    }
-
-}
-
-class ShouldWalkToSafespot(script: com.snow.zulrah.Script) : Branch<com.snow.zulrah.Script>(script, "Should walk to safespot") {
-    override val successComponent: TreeComponent<com.snow.zulrah.Script> = WalkToSafespot(script)
-    override val failedComponent: TreeComponent<com.snow.zulrah.Script> = ShouldChopVines(script)
-
-    override fun validate(): Boolean {
-        return false //script.configuration.snowfallSafespot &&
-                //Players.local().tile() != script.status.currentLocation.safespotTile
-    }
-}
-
-class ShouldChopVines(script: Script) : Branch<Script>(script, "Should chop vines") {
-    override val successComponent: TreeComponent<com.snow.zulrah.Script> = ChoppingVines(script)
-    override val failedComponent: TreeComponent<com.snow.zulrah.Script> = FletchLogs(script)
-
-    override fun validate(): Boolean {
-        return !Inventory.isFull() && Inventory.count(ITEM_BRUMA_KINDLING) == 0
     }
 }
 
